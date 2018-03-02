@@ -1,0 +1,122 @@
+﻿<Page x:Class="XamlBrewer.Uwp.ParallaxViewSample.VerticalPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Foreground="{StaticResource PageForegroundBrush}"
+      FontFamily="Segoe UI">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="74" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Title Bar -->
+        <TextBlock Foreground="{StaticResource PageTitleBrush}"
+                   FontSize="48"
+                   FontWeight="Light"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Margin="48 0 0 0"
+                   Grid.ColumnSpan="2">
+                <Run Text="Vertical Parallax Sample" />
+        </TextBlock>
+        <Path Data="{StaticResource VerticalIcon}"
+              Fill="{StaticResource PageTitleBrush}"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Right"
+              Height="62"
+              Width="62"
+              Margin="0 12 12 0"
+              Stretch="Uniform"
+              Grid.ColumnSpan="2" />
+
+        <!-- Content -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ParallaxView Source="{x:Bind ForegroundElement}"
+                          VerticalShift="100"
+                          Grid.ColumnSpan="2">
+
+                <!-- Background element -->
+                <Image x:Name="BackgroundImage"
+                       Source="ms-appx:///Assets/cyberpunk.jpg"
+                       Stretch="UniformToFill" />
+            </ParallaxView>
+
+            <!-- Foreground element -->
+            <ListView x:Name="ForegroundElement"
+                      Margin="180 0 0 0"
+                      HorizontalAlignment="Left"
+                      ScrollViewer.VerticalScrollBarVisibility="Visible"
+                      FontFamily="Segoe UI">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Border Background="Black"
+                                    Opacity=".65"
+                                    CornerRadius="3"
+                                    BorderBrush="DarkBlue"
+                                    BorderThickness="1"
+                                    Margin="5" />
+
+                            <TextBlock Text="{Binding}"
+                                       Foreground="Red"
+                                       FontSize="28"
+                                       FontFamily="Helvetica"
+                                       FontWeight="SemiBold"
+                                       Margin="15" />
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <x:String>Cyberpunk</x:String>
+                <x:String>is</x:String>
+                <x:String>a</x:String>
+                <x:String>sub-genre</x:String>
+                <x:String>of</x:String>
+                <x:String>science</x:String>
+                <x:String>fiction</x:String>
+                <x:String>that</x:String>
+                <x:String>features</x:String>
+                <x:String>advanced</x:String>
+                <x:String>science</x:String>
+                <x:String>and</x:String>
+                <x:String>technology</x:String>
+                <x:String>in</x:String>
+                <x:String>an</x:String>
+                <x:String>urban,</x:String>
+                <x:String>dystopian</x:String>
+                <x:String>future.</x:String>
+            </ListView>
+
+            <ParallaxView Source="{x:Bind ForegroundElement}"
+                          VerticalShift="50"
+                          Grid.Column="1">
+                <TextBlock Text="Test"
+                           Height="50"
+                           Margin="50"
+                           FontSize="36"
+                           HorizontalAlignment="Center" />
+            </ParallaxView>
+
+            <TextBlock Text="Test" Foreground="LightBlue"
+                       Height="50"
+                       Margin="50"
+                       FontSize="36"
+                       HorizontalAlignment="Center"
+                       Grid.Column="1"
+                       FontFamily="Segoe UI" />
+
+        </Grid>
+    </Grid>
+
+</Page>
