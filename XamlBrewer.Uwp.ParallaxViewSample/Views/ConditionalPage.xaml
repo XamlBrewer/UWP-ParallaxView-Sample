@@ -3,6 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:PriorToFcu="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractNotPresent(Windows.Foundation.UniversalApiContract,5)"
+      xmlns:FcuOrHigher="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,5)"
       mc:Ignorable="d"
       Foreground="{StaticResource PageForegroundBrush}"
       FontFamily="Segoe UI">
@@ -37,7 +39,8 @@
               Grid.ColumnSpan="2" />
 
         <!-- Content -->
-        <Grid Background="Transparent"
+        <Grid x:Name="ContentGrid"
+              Background="Transparent"
               Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -45,31 +48,35 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
+            <!-- SDK dependant-->
             <ParallaxView Source="{x:Bind ForegroundElement}"
                           VerticalShift="100"
                           Grid.Column="0"
                           Margin="0 0 4 0">
-
-                <!-- Background element -->
                 <Image Source="ms-appx:///Assets/beach.jpg"
                        Stretch="UniformToFill"
                        HorizontalAlignment="Left" />
             </ParallaxView>
 
-            <!-- Todo: add declarative conditional XAML expressions. -->
-            <ParallaxView Source="{x:Bind ForegroundElement}"
-                          VerticalShift="100"
-                          Margin="4 0"
-                          Grid.Column="1">
-
-                <!-- Background element -->
+            <!-- Declarative conditional XAML expressions. -->
+            <FcuOrHigher:ParallaxView Source="{x:Bind ForegroundElement}"
+                                      VerticalShift="100"
+                                      Margin="4 0"
+                                      Grid.Column="1">
                 <Image Source="ms-appx:///Assets/beach.jpg"
                        Stretch="UniformToFill"
                        HorizontalAlignment="Center" />
-            </ParallaxView>
+            </FcuOrHigher:ParallaxView>
 
-            <!-- Todo: add programmatic conditional XAML expressions. -->
-            <Image Source="ms-appx:///Assets/beach.jpg"
+            <PriorToFcu:Image Source="ms-appx:///Assets/beach.jpg"
+                              Stretch="UniformToFill"
+                              HorizontalAlignment="Right"
+                              Margin="4 0 0 0"
+                              Grid.Column="1" />
+
+            <!-- Programmatic conditional XAML expressions. -->
+            <Image x:Name="BeachImage"
+                   Source="ms-appx:///Assets/beach.jpg"
                    Stretch="UniformToFill"
                    HorizontalAlignment="Right"
                    Margin="4 0 0 0"
