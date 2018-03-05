@@ -23,7 +23,7 @@ namespace XamlBrewer.Uwp.ParallaxViewSample
                 Grid.SetColumn(parallax, 2);
                 ContentGrid.Children.Remove(BeachImage);
                 parallax.Child = BeachImage;
-                ContentGrid.Children.Add(parallax);
+                ContentGrid.Children.Insert(0, parallax);
             }
         }
     }
