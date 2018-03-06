@@ -1,4 +1,5 @@
-﻿using Windows.Foundation.Metadata;
+﻿using Mvvm.Services;
+using Windows.Foundation.Metadata;
 using Windows.UI.Xaml.Controls;
 
 namespace XamlBrewer.Uwp.ParallaxViewSample
@@ -14,7 +15,7 @@ namespace XamlBrewer.Uwp.ParallaxViewSample
 
         private void ConditionalPage_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            if (ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 5))
+            if (Sdk.SupportsParallaxView)
             {
                 // Insert ParallaxView.
                 var parallax = new ParallaxView();
