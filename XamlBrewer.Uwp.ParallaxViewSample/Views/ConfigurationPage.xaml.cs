@@ -34,5 +34,10 @@ namespace XamlBrewer.Uwp.ParallaxViewSample
         {
             Parallax.VerticalSourceEndOffset = e.NewValue;
         }
+
+        private void MaxVerticalShiftRatio_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        {
+           Parallax.MaxVerticalShiftRatio = e.NewValue / 100;
+        }
     }
 }

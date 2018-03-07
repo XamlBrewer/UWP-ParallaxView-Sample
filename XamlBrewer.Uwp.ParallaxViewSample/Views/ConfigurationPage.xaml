@@ -48,10 +48,11 @@
             <!-- Parallax -->
             <ParallaxView x:Name="Parallax"
                           Source="{x:Bind ForegroundElement}"
-                          VerticalShift="0"
+                          VerticalShift="100"
                           VerticalSourceStartOffset="0"
                           VerticalSourceEndOffset="0"
-                          VerticalSourceOffsetKind="Absolute"
+                          VerticalSourceOffsetKind="Relative"
+                          MaxVerticalShiftRatio="1"
                           IsVerticalShiftClamped="True">
                 <Image x:Name="BackgroundImage"
                        Source="ms-appx:///Assets/mountains.jpg"
@@ -107,11 +108,13 @@
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Slider Header="Vertical Shift"
                         Minimum="-200"
                         Maximum="200"
+                        Value="100"
                         ValueChanged="VerticalShift_ValueChanged"
                         Margin="20"
                         FontFamily="Segoe UI" />
@@ -129,20 +132,28 @@
                         Grid.Row="2"
                         FontFamily="Segoe UI" />
                 <ToggleSwitch Header="Vertical Source Offset Kind"
-                              IsOn="True"
+                              IsOn="False"
                               Toggled="VerticalSourceOffsetKind_Toggled"
                               OnContent="Absolute"
                               OffContent="Relative"
                               Margin="20"
                               Grid.Row="3"
                               FontFamily="Segoe UI" />
+                <Slider Header="Max Vertical Shift Ratio"
+                        Minimum="-100"
+                        Maximum="100"
+                        Value="100"
+                        ValueChanged="MaxVerticalShiftRatio_ValueChanged"
+                        Margin="20"
+                        Grid.Row="4"
+                        FontFamily="Segoe UI" />
                 <ToggleSwitch Header="Vertical Shift Clamped"
                               IsOn="True"
                               Toggled="VerticalShiftClamped_Toggled"
                               OnContent="True"
                               OffContent="False"
                               Margin="20"
-                              Grid.Row="4" />
+                              Grid.Row="5" />
             </Grid>
         </Grid>
     </Grid>
