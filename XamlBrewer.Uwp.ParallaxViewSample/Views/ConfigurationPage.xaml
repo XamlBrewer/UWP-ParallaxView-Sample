@@ -47,17 +47,14 @@
             <!-- Main -->
             <!-- Parallax -->
             <ParallaxView x:Name="Parallax"
-                          Source="{x:Bind ForegroundElement}"
-                          VerticalShift="100"
-                          VerticalSourceStartOffset="0"
-                          VerticalSourceEndOffset="0"
-                          VerticalSourceOffsetKind="Relative"
-                          MaxVerticalShiftRatio="1"
-                          IsVerticalShiftClamped="True">
+                          Source="{x:Bind ForegroundElement}">
                 <Image x:Name="BackgroundImage"
                        Source="ms-appx:///Assets/mountains.jpg"
                        Stretch="UniformToFill"
                        HorizontalAlignment="Center" />
+                <!--<Image x:Name="BackgroundImage"
+                       Source="ms-appx:///Assets/ruler.jpg"
+                       Stretch="Uniform" />-->
             </ParallaxView>
             <!-- List -->
             <ListView x:Name="ForegroundElement"
@@ -100,61 +97,63 @@
                 <x:String>shoe.</x:String>
             </ListView>
             <!-- Configuration Panel -->
-            <Grid Background="#FED8C1"
-                  Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Slider Header="Vertical Shift"
-                        Minimum="-200"
-                        Maximum="200"
-                        Value="100"
-                        ValueChanged="VerticalShift_ValueChanged"
-                        Margin="20"
-                        FontFamily="Segoe UI" />
-                <Slider Header="Vertical Source Start Offset"
-                        Minimum="-100"
-                        Maximum="100"
-                        ValueChanged="VerticalSourceStartOffset_ValueChanged"
-                        Margin="20"
-                        Grid.Row="1" />
-                <Slider Header="Vertical Source End Offset"
-                        Minimum="-100"
-                        Maximum="100"
-                        ValueChanged="VerticalSourceEndOffset_ValueChanged"
-                        Margin="20"
-                        Grid.Row="2"
-                        FontFamily="Segoe UI" />
-                <ToggleSwitch Header="Vertical Source Offset Kind"
-                              IsOn="False"
-                              Toggled="VerticalSourceOffsetKind_Toggled"
-                              OnContent="Absolute"
-                              OffContent="Relative"
-                              Margin="20"
-                              Grid.Row="3"
-                              FontFamily="Segoe UI" />
-                <Slider Header="Max Vertical Shift Ratio"
-                        Minimum="-100"
-                        Maximum="100"
-                        Value="100"
-                        ValueChanged="MaxVerticalShiftRatio_ValueChanged"
-                        Margin="20"
-                        Grid.Row="4"
-                        FontFamily="Segoe UI" />
-                <ToggleSwitch Header="Vertical Shift Clamped"
-                              IsOn="True"
-                              Toggled="VerticalShiftClamped_Toggled"
-                              OnContent="True"
-                              OffContent="False"
-                              Margin="20"
-                              Grid.Row="5" />
-            </Grid>
+            <ScrollViewer Grid.Column="1"
+                          VerticalScrollMode="Enabled"
+                          VerticalScrollBarVisibility="Auto">
+                <StackPanel Background="#FED8C1"
+                            Grid.Column="1">
+                    <Slider Header="Vertical Shift"
+                            Minimum="-200"
+                            Maximum="200"
+                            Value="{Binding Path=VerticalShift, ElementName=Parallax, Mode=TwoWay}"
+                            Margin="20" />
+                    <TextBlock Text="{Binding Path=VerticalShift, ElementName=Parallax}"
+                               HorizontalAlignment="Center"
+                               Foreground="Black"
+                               Margin="0 -8 0 0" />
+                    <Slider Header="Vertical Source Start Offset"
+                            Minimum="-100"
+                            Maximum="100"
+                            Value="{Binding Path=VerticalSourceStartOffset, ElementName=Parallax, Mode=TwoWay}"
+                            Margin="20" />
+                    <TextBlock Text="{Binding Path=VerticalSourceStartOffset, ElementName=Parallax}"
+                               HorizontalAlignment="Center"
+                               Foreground="Black"
+                               Margin="0 -8 0 0" />
+                    <Slider Header="Vertical Source End Offset"
+                            Minimum="-100"
+                            Maximum="100"
+                            Value="{Binding Path=VerticalSourceEndOffset, ElementName=Parallax, Mode=TwoWay}"
+                            Margin="20" />
+                    <TextBlock Text="{Binding Path=VerticalSourceEndOffset, ElementName=Parallax}"
+                               HorizontalAlignment="Center"
+                               Foreground="Black"
+                               Margin="0 -8 0 0" />
+                    <ToggleSwitch Header="Vertical Source Offset Kind"
+                                  IsOn="True"
+                                  Toggled="VerticalSourceOffsetKind_Toggled"
+                                  OnContent="Absolute"
+                                  OffContent="Relative"
+                                  Margin="20" />
+                    <Slider x:Name="MaxVerticalShiftRatioSlider"
+                            Header="Max Vertical Shift Ratio"
+                            Minimum="0"
+                            Maximum="1"
+                            StepFrequency=".01"
+                            Value="{Binding Path=MaxVerticalShiftRatio, ElementName=Parallax, Mode=TwoWay}"
+                            Margin="20" />
+                    <TextBlock Text="{Binding Path=MaxVerticalShiftRatio, ElementName=Parallax}"
+                               HorizontalAlignment="Center"
+                               Foreground="Black"
+                               Margin="0 -8 0 0" />
+                    <ToggleSwitch Header="Vertical Shift Clamped"
+                                  IsOn="False"
+                                  Toggled="VerticalShiftClamped_Toggled"
+                                  OnContent="True"
+                                  OffContent="False"
+                                  Margin="20" />
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 

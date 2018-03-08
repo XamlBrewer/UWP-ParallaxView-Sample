@@ -139,6 +139,7 @@
     <Content Include="Assets\beach.jpg" />
     <Content Include="Assets\cyberpunk.jpg" />
     <Content Include="Assets\mountains.jpg" />
+    <Content Include="Assets\ruler.jpg" />
     <Content Include="Assets\sun.png" />
     <Content Include="Assets\waves.png" />
     <Content Include="Properties\Default.rd.xml" />
