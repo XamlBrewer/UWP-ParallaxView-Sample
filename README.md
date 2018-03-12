@@ -5,3 +5,5 @@ This sample app dives into the ParallaxView control for UWP, demonstrating:
 * horizontal shift animation,</Run>
 * finetuning the shift animation, and
 * declarative and programmatic conditional display.
+
+![ScreenShot](Assets/HorizontalParallax.gif?raw=true "Screen Shot")
