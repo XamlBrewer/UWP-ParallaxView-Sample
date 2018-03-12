@@ -48,7 +48,7 @@
             <LineBreak />
             <Run>* analyzing all relevant properties, and</Run>
             <LineBreak />
-            <Run>* conditional display.</Run>
+            <Run FontFamily="Segoe UI">* declarative and programmatic conditional display.</Run>
         </TextBlock>
 
         <!-- Logo -->

@@ -57,7 +57,7 @@
             <ListView x:Name="ForegroundElement"
                       Margin="180 0 0 0"
                       HorizontalAlignment="Left"
-                      ScrollViewer.VerticalScrollBarVisibility="Visible"
+                      ScrollViewer.VerticalScrollBarVisibility="auto"
                       FontFamily="Segoe UI">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -101,14 +101,15 @@
             <ParallaxView Source="{x:Bind ForegroundElement}"
                           VerticalShift="50"
                           Grid.Column="1">
-                <TextBlock Text="Test"
+                <TextBlock Text="Bladerunner 2049"
                            Height="50"
                            Margin="50"
                            FontSize="36"
                            HorizontalAlignment="Center" />
             </ParallaxView>
 
-            <TextBlock Text="Test" Foreground="LightBlue"
+            <TextBlock Text="Bladerunner"
+                       Foreground="LightBlue"
                        Height="50"
                        Margin="50"
                        FontSize="36"
