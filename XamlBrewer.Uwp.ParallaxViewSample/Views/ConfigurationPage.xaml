@@ -130,7 +130,7 @@
                                Foreground="Black"
                                Margin="0 -8 0 0" />
                     <ToggleSwitch Header="Vertical Source Offset Kind"
-                                  IsOn="True"
+                                  IsOn="False"
                                   Toggled="VerticalSourceOffsetKind_Toggled"
                                   OnContent="Absolute"
                                   OffContent="Relative"

@@ -1,5 +1,4 @@
-﻿using System;
-using Windows.UI.Xaml.Controls;
+﻿using Windows.UI.Xaml.Controls;
 
 namespace XamlBrewer.Uwp.ParallaxViewSample
 {
@@ -12,12 +11,12 @@ namespace XamlBrewer.Uwp.ParallaxViewSample
 
         private void VerticalShiftClamped_Toggled(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            // Parallax.IsVerticalShiftClamped = (sender as ToggleSwitch).IsOn;
+            Parallax.IsVerticalShiftClamped = (sender as ToggleSwitch).IsOn;
         }
 
         private void VerticalSourceOffsetKind_Toggled(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-           // Parallax.VerticalSourceOffsetKind = (sender as ToggleSwitch).IsOn ? ParallaxSourceOffsetKind.Absolute : ParallaxSourceOffsetKind.Relative;
+           Parallax.VerticalSourceOffsetKind = (sender as ToggleSwitch).IsOn ? ParallaxSourceOffsetKind.Absolute : ParallaxSourceOffsetKind.Relative;
         }
     }
 }
