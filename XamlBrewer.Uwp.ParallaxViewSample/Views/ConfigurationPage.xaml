@@ -5,7 +5,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d"
       Foreground="{StaticResource PageForegroundBrush}"
-      RequestedTheme="Light">
+      RequestedTheme="Light"
+      FontFamily="Segoe UI">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -48,13 +49,16 @@
             <!-- Parallax -->
             <ParallaxView x:Name="Parallax"
                           Source="{x:Bind ForegroundElement}">
-                <Image x:Name="BackgroundImage"
+                <!--<Image x:Name="BackgroundImage"
                        Source="ms-appx:///Assets/mountains.jpg"
                        Stretch="UniformToFill"
-                       HorizontalAlignment="Center" />
+                       HorizontalAlignment="Center" />-->
                 <!--<Image x:Name="BackgroundImage"
                        Source="ms-appx:///Assets/ruler.jpg"
                        Stretch="Uniform" />-->
+                <Image x:Name="BackgroundImage"
+                       Source="ms-appx:///Assets/ruler.jpg"
+                       Stretch="None" />
             </ParallaxView>
             <!-- List -->
             <ListView x:Name="ForegroundElement"
